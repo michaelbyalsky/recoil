@@ -5,6 +5,7 @@ import "./sidebar.css";
 // DO NOT TOUCH THIS
 import { sidebarRenderMeterState } from "../../ChallengeUtils/renderMeter.js";
 import { useRenderMeter } from "../../ChallengeUtils/hooks.js";
+
 // ------------------------
 
 function SideBar() {

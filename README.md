@@ -63,10 +63,10 @@ useRecoilValue(--name of atom--)
 A rectangle has: id ,name ,width ,height and color properties.
 
 In order to add a rectangle to the canvas we need to save it somewhere:
-So first create an atom state that saves an array of objects, and call it 'rectanglesArrayState'. It's default prop is an empty array. then
-import 'rectanglesArrayState' to SideBarList and Canvas components as a recoilValue.
-In Canvas render each array item as a Rectangle component and import 'rectanglesArrayState' to Menu and use it as a recoil state (like in task 2).
-Include a counter called idCounter that saves the current number of rectangles, and implement a submitShape function so you can add a rectangle to the 'rectanglesArrayState' recoil state.
+So first create an atom state that saves an array of objects, and call it 'rectangleIdArrayState'. It's default prop is an empty array. then
+import 'rectangleIdArrayState' to SideBarList and Canvas components as a recoilValue.
+In Canvas render each array item as a Rectangle component and import 'rectangleIdArrayState' to Menu and use it as a recoil state (like in task 2).
+Include a counter called idCounter that saves the current number of rectangles, and implement a submitShape function so you can add a rectangle to the 'rectangleIdArrayState' recoil state.
 
 ## Tasks 4: Add an edit option to SideBarItem!
 
@@ -103,7 +103,7 @@ export const rectAtomFamily = atomFamily({
 });
 ```
 
-Change **rectanglesArrayState**'s name to: **rectangleIdArrayState**, don't forget to change the name in the Menu, SideBarList and Canvas components.
+Change **rectangleIdArrayState**'s name to: **rectangleIdArrayState**, don't forget to change the name in the Menu, SideBarList and Canvas components.
 Create an atom family in a new file, in Canvas and SideBarList components change the render method: instead of passing over the props, pass over only the id.
 In Menu component import the rectAtomFamily and use it to create a recoil state:
 
