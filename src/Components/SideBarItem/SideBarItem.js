@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./sideBarItem.css";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { rectangleIdArrayState } from "../Atoms";
@@ -12,15 +12,20 @@ function SideBarItem({ id }) {
   const [widthInput, setWidthInput] = useState(rectAtom.width);
   const [heightInput, setHeightInput] = useState(rectAtom.height);
   const [colorInput, setColorInput] = useState(rectAtom.color);
+  const [name, setName] = useState(rectAtom.name);
 
   const change = () => {
 	setRectAtom({width: widthInput, height: heightInput, color: colorInput});
   }
+
+  useEffect(() => {
+    change()
+  }, [colorInput, heightInput, widthInput])
  
 
   return (
     <li className="sidebar__row">
-      <span className="sidebarItemName">{rectAtom.name}</span>
+      <span className="sidebarItemName">{name}</span>
       <label>width :</label>
       <input
         value={widthInput}
@@ -28,7 +33,7 @@ function SideBarItem({ id }) {
         type="number"
         placeholder="width"
         min="0"
-        onChange={(e) => {setWidthInput(e.target.value); change()}}
+        onChange={(e) => setWidthInput(e.target.value)}
       />
       <label>height :</label>
       <input
@@ -37,14 +42,14 @@ function SideBarItem({ id }) {
         type="number"
         placeholder="height"
         min="0"
-        onChange={(e) => {setHeightInput(e.target.value); change()}}
+        onChange={(e) => setHeightInput(e.target.value)}
       />
       <label>color :</label>
       <input
         value={colorInput}
         type="color"
         id="colorModifier"
-        onChange={(e) => {setColorInput(e.target.value); change()}}
+        onChange={(e) => setColorInput(e.target.value)}
       />
     </li>
   );
